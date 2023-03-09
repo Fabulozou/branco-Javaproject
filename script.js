@@ -81,7 +81,6 @@ function playRound(playerSelection, computerSelection) {
 function game() {
 
     for(var i = 1; i <= 5; i++) {
-
        const playerSelection = playerPlay();
        const computerSelection = computerPlay();
        alert(playRound(playerSelection, computerSelection));
@@ -91,11 +90,11 @@ function game() {
     }
 
     if(playerScore>computerScore){
-        confirm(`Match result: ${playerName} Wins. Press ok to restart.`)
+        confirm(`Match result: ${playerName} Wins: ${playerScore} - ${computerScore} . Press Ok to restart.`)
             window.location.reload("./");
     }
     else if(playerScore<computerScore){
-        confirm('Match result: Branko wins! Press ok to restart')
+        confirm(`Match result: Branko Wins: ${computerScore} - ${playerScore} . Press Ok to restart`)
             window.location.reload("./");
     }
     else{
