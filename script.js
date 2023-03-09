@@ -1,12 +1,15 @@
 let playerScore = 0;
 let computerScore = 0;
+let playerName = prompt('Enter Player name')
+game();
 
-const playerSelection = playerPlay();
-const computerSelection = computerPlay();
+//const playerSelection = playerPlay();
+//const computerSelection = computerPlay();
 
 // computer select function
-function computerPlay() {
 
+function computerPlay() {
+    
     const option = ['rock', 'paper', 'scissors'];
 
     let random = Math.floor(Math.random() * 3);
@@ -14,19 +17,30 @@ function computerPlay() {
     return option[random];
 }
 
-console.log('Branko: ' + computerSelection);
+//console.log('Branko: ' + computerSelection);
 
 // player select function
 function playerPlay() {
-
-    const input = prompt('Rock,Paper,Scissors?');
-
-    const option = input.toLowerCase();
     
-    return option;
+    let correctInput =  true;
+    // Loop will run until the user gives a correct input
+    while(correctInput)
+    {
+        const input = prompt('Rock,Paper,Scissors?');
+        const option = input.toLowerCase();
+
+        if(option === 'rock' || option === 'paper' || option === 'scissors')
+        {  
+            return option;
+        }
+        else
+        {
+            alert('Incorrect input! Try again');
+        }
+    }
 }
 
-console.log('Number Juan: ' + playerSelection);
+//console.log('Number Juan: ' + playerSelection);
 
 
 // play 1 single round
@@ -41,7 +55,7 @@ function playRound(playerSelection, computerSelection) {
 
         if(computerSelection === 'scissors') {
             playerScore++;
-            return 'Number Juan wins with rock';
+            return `${playerName} wins with rock`;
         } else if(computerSelection === 'paper') {
             computerScore++;
             return 'Branko wins with paper'
@@ -52,7 +66,7 @@ function playRound(playerSelection, computerSelection) {
 
         if(computerSelection === 'rock') {
             playerScore++;
-            return 'Number Juan wins with paper';
+            return `${playerName} wins with paper`;
         } else if(computerSelection === 'scissors') {
             computerScore++;
             return 'Branko wins with scissors';
@@ -63,7 +77,7 @@ function playRound(playerSelection, computerSelection) {
 
         if(computerSelection === "paper") {
             playerScore++;
-            return 'Number Juan wins with scissors';
+            return `${playerName} wins with scissors`;
         } else if(computerSelection === 'rock') {
             computerScore++;
             return 'Branko wins with rock';
@@ -73,10 +87,10 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // console.log(playRound(playerSelection, computerSelection));
-playRound(playerSelection, computerSelection);
+//playRound(playerSelection, computerSelection);
 
-console.log('Number Juan: ' + playerScore);
-console.log('Branko: ' + computerScore);
+//console.log('Number Juan: ' + playerScore);
+//console.log('Branko: ' + computerScore);
 
 
 // game
@@ -85,8 +99,22 @@ function game() {
 
     for(var i = 1; i <= 5; i++) {
 
-       console.log('repeat 5 times');
-       playRound(playerSelection, computerSelection);
+       const playerSelection = playerPlay();
+       const computerSelection = computerPlay();
+       alert(playRound(playerSelection, computerSelection));
+
+       console.log(`${playerName}: ` + playerScore);
+       console.log('Branko: ' + computerScore);
+    }
+
+    if(playerScore>computerScore){
+        alert(`Match result: ${playerName} wins!`)
+    }
+    else if(playerScore<computerScore){
+        alert('Match result: Branko wins!')
+    }
+    else{
+        alert('Match result: It is a tie!')
     }
 
 }
