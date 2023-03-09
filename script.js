@@ -109,9 +109,11 @@ function game() {
 
     if(playerScore>computerScore){
         alert(`Match result: ${playerName} wins!`)
+        playerScore++;
     }
     else if(playerScore<computerScore){
         alert('Match result: Branko wins!')
+        computerScore++;
     }
     else{
         alert('Match result: It is a tie!')
