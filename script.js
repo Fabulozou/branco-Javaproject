@@ -3,21 +3,13 @@ let computerScore = 0;
 let playerName = prompt('Enter Player name')
 game();
 
-//const playerSelection = playerPlay();
-//const computerSelection = computerPlay();
-
 // computer select function
 
 function computerPlay() {
-    
     const option = ['rock', 'paper', 'scissors'];
-
-    let random = Math.floor(Math.random() * 3);
-    
+    let random = Math.floor(Math.random() * option.length);
     return option[random];
 }
-
-//console.log('Branko: ' + computerSelection);
 
 // player select function
 function playerPlay() {
@@ -39,9 +31,6 @@ function playerPlay() {
         }
     }
 }
-
-//console.log('Number Juan: ' + playerSelection);
-
 
 // play 1 single round
 function playRound(playerSelection, computerSelection) {
@@ -86,19 +75,11 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-// console.log(playRound(playerSelection, computerSelection));
-//playRound(playerSelection, computerSelection);
-
-//console.log('Number Juan: ' + playerScore);
-//console.log('Branko: ' + computerScore);
-
 
 // game
-
 function game() {
 
     for(var i = 1; i <= 5; i++) {
-
        const playerSelection = playerPlay();
        const computerSelection = computerPlay();
        alert(playRound(playerSelection, computerSelection));
@@ -108,13 +89,16 @@ function game() {
     }
 
     if(playerScore>computerScore){
-        alert(`Match result: ${playerName} wins!`)
+        confirm(`Match result: ${playerName} Wins: ${playerScore} - ${computerScore} . Press Ok to restart.`)
+            window.location.reload("./");
     }
     else if(playerScore<computerScore){
-        alert('Match result: Branko wins!')
+        confirm(`Match result: Branko Wins: ${computerScore} - ${playerScore} . Press Ok to restart`)
+            window.location.reload("./");
     }
     else{
-        alert('Match result: It is a tie!')
+        confirm(`Match result: It is a tie! ${playerScore} - ${computerScore} . Press Ok to restart`)
+            window.location.reload("./");
     }
 
 }
