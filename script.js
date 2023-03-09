@@ -77,7 +77,6 @@ function playRound(playerSelection, computerSelection) {
 
 
 // game
-
 function game() {
 
     for(var i = 1; i <= 5; i++) {
@@ -98,7 +97,7 @@ function game() {
             window.location.reload("./");
     }
     else{
-        confirm('Match result: It is a tie!')
+        confirm(`Match result: It is a tie! ${playerScore} - ${computerScore} . Press Ok to restart`)
             window.location.reload("./");
     }
 
