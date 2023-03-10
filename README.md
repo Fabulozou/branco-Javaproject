@@ -59,6 +59,8 @@ The game is case-insensitive,. so the user can input their selection in any case
 
 ## Usage
 To play the game, simply open the index.html file in your web browser to access the console and then select "Rock", "Paper", or "Scissors". The computer will generate a random selection, and the game will determine the winner. The outcome of the game will be displayed on the screen, along with the updated score.
+Click Below to access the game 
+https://fabulozou.github.io/branco-Javaproject/
 
 ## Installation
 To install the game, simply download or clone this repository to your local machine. The game requires no external dependencies or libraries, and can be run directly from the index.html file.
