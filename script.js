@@ -88,17 +88,23 @@ function game() {
        console.log('Branko: ' + computerScore);
     }
 
+    let reStart = false;
+
     if(playerScore>computerScore){
-        confirm(`Match result: ${playerName} Wins: ${playerScore} - ${computerScore} . Press Ok to restart.`)
-            window.location.reload("./");
+       reStart = confirm(`Match result: ${playerName} Wins: ${playerScore} - ${computerScore} . Press Ok to restart.`)
+            
     }
     else if(playerScore<computerScore){
-        confirm(`Match result: Branko Wins: ${computerScore} - ${playerScore} . Press Ok to restart`)
-            window.location.reload("./");
+       reStart = confirm(`Match result: Branko Wins: ${computerScore} - ${playerScore} . Press Ok to restart`)
+            
     }
     else{
-        confirm(`Match result: It is a tie! ${playerScore} - ${computerScore} . Press Ok to restart`)
-            window.location.reload("./");
+       reStart = confirm(`Match result: It is a tie! ${playerScore} - ${computerScore} . Press Ok to restart`)
+            
     }
+    
+    if(reStart)
+     window.location.reload("./");
 
 }
+
