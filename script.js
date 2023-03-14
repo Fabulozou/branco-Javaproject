@@ -1,6 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
-let playerName = prompt('Enter Player name')
+let playerName = prompt('Welcome ! Enter Player name')
 game();
 
 // computer select function
