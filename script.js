@@ -96,16 +96,17 @@ function game() {
       playCount++;
     }
 
-    // Stop the game if the player has played 5 rounds or if they quit the game
-    if (playCount === 5 || !playAgain) {
-      alert(`The game has ended! ${playerName}: ${playerScore}, Branko: ${computerScore}`);
-      break;
+       console.log(`${playerName}: ` + playerScore);
+       console.log('Branko: ' + computerScore);
     }
-  }
 
-  if (playerScore > computerScore) {
-    if (confirm(`Match result: ${playerName} Wins: ${playerScore} - ${computerScore}. Press OK to restart.`)) {
-      window.location.reload('./');
+    let reStart = false;
+
+    if(playerScore>computerScore){
+
+        confirm(`Match result: ${playerName} Wins: ${playerScore} - ${computerScore} . Press Ok to restart.`)
+        reset();
+        game();
     }
   } else if (playerScore < computerScore) {
     if (confirm(`Match result: Branko Wins: ${computerScore} - ${playerScore}. Press OK to restart.`)) {
@@ -118,3 +119,20 @@ function game() {
   }
 }
 game();
+       reStart = confirm(`Match result: ${playerName} Wins: ${playerScore} - ${computerScore} . Press Ok to restart.`)
+            
+    }
+    else if(playerScore<computerScore){
+       reStart = confirm(`Match result: Branko Wins: ${computerScore} - ${playerScore} . Press Ok to restart`)
+            
+    }
+    else{
+       reStart = confirm(`Match result: It is a tie! ${playerScore} - ${computerScore} . Press Ok to restart`)
+            
+    }
+    
+    if(reStart)
+     window.location.reload("./");
+
+}
+
