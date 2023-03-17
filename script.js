@@ -66,7 +66,7 @@ function playRound(playerSelection, computerSelection) {
 
 // woza game functionality with no var 
 function game() {
-    for(var i = 1; i <= 5; i++) {
+    for(let i = 1; i <= 5; i++) {
        const playerSelection = playerPlay();
        const computerSelection = computerPlay();
        alert(playRound(playerSelection, computerSelection));
