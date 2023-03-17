@@ -1,6 +1,7 @@
 let playerScore = 0;
 let computerScore = 0;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 // Prompt for player name with input validation
 let playerName = '';
@@ -9,6 +10,8 @@ while (playerName.trim() === '') {
 }
 // computer(Branko) select function
 =======
+=======
+>>>>>>> Stashed changes
 
 // Prompt for player name with input validation
 let playerName = '';
@@ -17,12 +20,16 @@ while (playerName.length===0) {
 }
 
 // computer select function
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 function computerPlay() {
   const options = ['rock', 'paper', 'scissors'];
   let random = Math.floor(Math.random() * options.length);
   return options[random];
 }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 // player select function
 function playerPlay() {
@@ -38,6 +45,30 @@ function playerPlay() {
       alert('Incorrect input! Try again');
     }
   }
+=======
+
+// player select function with input validation
+function playerPlay() {
+  const maxAttempts = 5;
+  let attempts = 0;
+
+  while (attempts < maxAttempts) {
+    const input = prompt('Rock, Paper, Scissors?');
+    const option = input.toLowerCase();
+    
+   
+    if (option === 'rock' || option === 'paper' || option === 'scissors') {
+      return option;
+    } else {
+      alert('Incorrect input! Try again');
+      attempts++;
+    }
+  }
+
+  // Maximum number of attempts exceeded
+  alert(`You have exceeded the maximum number of attempts (${maxAttempts}). The game will now exit.`);
+  throw new Error('Maximum number of attempts exceeded');
+>>>>>>> Stashed changes
 }
 // play 1 single round
 function playRound(playerSelection, computerSelection) {
@@ -76,6 +107,19 @@ function playerPlay() {
   alert(`You have exceeded the maximum number of attempts (${maxAttempts}). The game will now exit.`);
   throw new Error('Maximum number of attempts exceeded');
 }
+
+// automatic play function
+//function autoPlay() {
+  //  const playerSelection = playerPlay();
+    //const computerSelection = computerPlay();
+   // alert(playRound(playerSelection, computerSelection));
+//}    
+
+//cheat function
+//function cheat() {
+  //  playerScore++;
+    //alert(`${playerName} of the PeakyBlinders is Inevitable!!`);   
+//}
 
 // automatic play function
 //function autoPlay() {
@@ -232,5 +276,9 @@ function game() {
     }
 }
 // start the game
+<<<<<<< Updated upstream
+game();
+>>>>>>> Stashed changes
+=======
 game();
 >>>>>>> Stashed changes
