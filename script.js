@@ -27,7 +27,7 @@ function playerPlay() {
     }
   }
 }
-// play 1 single round with nested if statements
+// play 1 single round
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     return 'It is a tie';
@@ -42,6 +42,7 @@ function playRound(playerSelection, computerSelection) {
       return 'Branko wins with paper';
     }
   }
+
   if (playerSelection === 'paper') {
     if (computerSelection === 'rock') {
       playerScore++;
@@ -95,44 +96,16 @@ function game() {
       alert(playRound(playerSelection, computerSelection));
       playCount++;
     }
-
-       console.log(`${playerName}: ` + playerScore);
-       console.log('Branko: ' + computerScore);
-    }
-
-    let reStart = false;
-
-    if(playerScore>computerScore){
-
-        confirm(`Match result: ${playerName} Wins: ${playerScore} - ${computerScore} . Press Ok to restart.`)
-        reset();
-        game();
-    }
-  } else if (playerScore < computerScore) {
-    if (confirm(`Match result: Branko Wins: ${computerScore} - ${playerScore}. Press OK to restart.`)) {
-      window.location.reload('./');
-    }
-  } else {
-    if (confirm(`Match result: It is a tie! ${playerScore} - ${computerScore}. Press OK to restart.`)) {
-      window.location.reload('./');
+    // Stop the game if the player has played 5 rounds or if they quit the game
+    if (playCount === 5 || !playAgain) {
+      alert(`The game has ended! ${playerName}: ${playerScore}, Computer: ${computerScore}`);
+      break;
     }
   }
-}
-game();
-       reStart = confirm(`Match result: ${playerName} Wins: ${playerScore} - ${computerScore} . Press Ok to restart.`)
-            
-    }
-    else if(playerScore<computerScore){
-       reStart = confirm(`Match result: Branko Wins: ${computerScore} - ${playerScore} . Press Ok to restart`)
-            
-    }
-    else{
-       reStart = confirm(`Match result: It is a tie! ${playerScore} - ${computerScore} . Press Ok to restart`)
-            
-    }
-    
-    if(reStart)
-     window.location.reload("./");
-
-}
-
+  if (playerScore > computerScore) {
+    if (confirm(`Matchresult: ${playerName} Wins: ${playerScore} - ${computerScore}. Press Ok to restart.)) { window.location.reload('./'); } } else if (playerScore < computerScore) { if (confirm(Match result: Branko Wins: ${computerScore} - ${playerScore}. Press Ok to restart)) { window.location.reload('./'); } } else { if (confirm(Match result: It is a tie! ${playerScore} - ${computerScore}. Press Ok to restart`)) {
+      window.location.reload('./');
+      }
+      }
+      }
+      game();
