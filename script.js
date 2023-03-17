@@ -1,17 +1,22 @@
 let playerScore = 0;
 let computerScore = 0;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
+// computer select function
+function computerPlay() {
+    const option = ['rock', 'paper', 'scissors'];
+    let random = Math.floor(Math.random() * option.length);
+    return option[random];
+}
+// player select function
 // Prompt for player name with input validation
-let playerName = '';
+let playerName = prompt('Welcome ! Enter Player name')
+game();
 while (playerName.trim() === '') {
   playerName = prompt('Enter Player name');
 }
+
 // computer(Branko) select function
-=======
-=======
->>>>>>> Stashed changes
+
 
 // Prompt for player name with input validation
 let playerName = '';
@@ -20,17 +25,12 @@ while (playerName.length===0) {
 }
 
 // computer select function
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 function computerPlay() {
   const options = ['rock', 'paper', 'scissors'];
   let random = Math.floor(Math.random() * options.length);
   return options[random];
 }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
 // player select function
 function playerPlay() {
   let correctInput = true;
@@ -45,7 +45,7 @@ function playerPlay() {
       alert('Incorrect input! Try again');
     }
   }
-=======
+
 
 // player select function with input validation
 function playerPlay() {
@@ -68,22 +68,25 @@ function playerPlay() {
   // Maximum number of attempts exceeded
   alert(`You have exceeded the maximum number of attempts (${maxAttempts}). The game will now exit.`);
   throw new Error('Maximum number of attempts exceeded');
->>>>>>> Stashed changes
+
 }
+
 // play 1 single round
+// play round with nested if statements
+
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    return 'It is a tie';
+    return `It is a tie current score: ${playerName} ${playerScore} - Branko ${computerScore}`;
   }
 
   if (playerSelection === 'rock') {
     if (computerSelection === 'scissors') {
       playerScore++;
-      return `${playerName} wins with rock`;
+      return `${playerName} Wins with Rock, score: ${playerName} ${playerScore} - Branko ${computerScore}`;
     } else if (computerSelection === 'paper') {
       computerScore++;
       return 'Branko wins with paper';
-=======
+
 
 // player select function with input validation
 function playerPlay() {
@@ -138,19 +141,23 @@ function playerPlay() {
 function playRound(playerSelection, computerSelection) {
      if(playerSelection === computerSelection) {
         return 'It is a tie';
->>>>>>> Stashed changes
+
+
+      return `Branko wins with Paper, score: Branko ${computerScore} - ${playerName} ${playerScore}`;
+
     }
   }
 
-<<<<<<< Updated upstream
+
   if (playerSelection === 'paper') {
     if (computerSelection === 'rock') {
       playerScore++;
-      return `${playerName} wins with paper`;
+      return `${playerName} Wins with Paper, score ${playerScore} - Branko ${computerScore}`;
     } else if (computerSelection === 'scissors') {
       computerScore++;
+
       return 'Branko wins with scissors';
-=======
+
 
     if(playerSelection === 'rock') {
         if(computerSelection === 'scissors') {
@@ -160,24 +167,30 @@ function playRound(playerSelection, computerSelection) {
             computerScore++;
             return 'Branko wins with paper'
         }
->>>>>>> Stashed changes
+
     }
   }
 
-<<<<<<< Updated upstream
+
+
+      return `Branko wins with Scissors, score: Branko ${computerScore} - ${playerName} ${playerScore}`;
+    }
+  }
+
   if (playerSelection === 'scissors') {
     if (computerSelection === 'paper') {
       playerScore++;
-      return `${playerName} wins with scissors`;
+      return `${playerName} Wins with Scissors, score: ${playerName} ${playerScore} - Branko ${computerScore}`;
     } else if (computerSelection === 'rock') {
       computerScore++;
-      return 'Branko wins with rock';
+      return `Branko wins with Rock, score: Branko ${computerScore} - ${playerName} ${playerScore}`;
     }
   }
 }
 
 // woza game functionality with no var 
 function game() {
+
   let playCount = 0;
   let playAgain = true;
 
@@ -202,7 +215,6 @@ function game() {
         alert('Incorrect input! Try again');
       }
     } while (playerSelection === null);
-=======
     if(playerSelection === 'paper') {
         if(computerSelection === 'rock') {
             playerScore++;
@@ -236,14 +248,13 @@ function game() {
        const playerSelection = playerPlay();
        const computerSelection = computerPlay();
        alert(playRound(playerSelection, computerSelection));
->>>>>>> Stashed changes
 
     if (playAgain) {
       const computerSelection = computerPlay();
       alert(playRound(playerSelection, computerSelection));
       playCount++;
     }
-<<<<<<< Updated upstream
+
     // Stop the game if the player has played 5 rounds or if they quit the game
     if (playCount === 5 || !playAgain) {
       alert(`The game has ended! ${playerName}: ${playerScore}, Computer: ${computerScore}`);
@@ -257,7 +268,7 @@ function game() {
       }
       }
       game();
-=======
+
 
     if(playerScore>computerScore){
         confirm(`Match result: ${playerName} Wins: ${playerScore} - ${computerScore} . Press Ok to restart.`)
@@ -276,9 +287,32 @@ function game() {
     }
 }
 // start the game
-<<<<<<< Updated upstream
+
 game();
->>>>>>> Stashed changes
-=======
+
 game();
->>>>>>> Stashed changes
+
+    for(let i = 1; i <= 5; i++) {
+       const playerSelection = playerPlay();
+       const computerSelection = computerPlay();
+       alert(playRound(playerSelection, computerSelection));
+      // terminal feedback.
+       console.log(`${playerName}: ` + playerScore);
+       console.log('Branko: ' + computerScore);
+    }
+
+    if(playerScore>computerScore){
+      confirm(`Match result: ${playerName} Wins: ${playerScore} - ${computerScore} . Press Ok to restart.`)
+      window.location.reload(playRound());
+    }
+    if (playerScore < computerScore) {
+      if (confirm(`Match result: Branko Wins: ${computerScore} - ${playerScore}. Press OK to restart.`)) {
+        window.location.reload(playRound());
+    }
+  } else {
+    if (confirm(`Match result: It is a tie! ${playerScore} - ${computerScore}. Press OK to restart.`)) {
+      window.location.reload(playRound());
+    }
+  }
+}
+
