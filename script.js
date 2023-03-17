@@ -3,14 +3,11 @@ let computerScore = 0;
 
 
 // Prompt for player name with input validation
-let playerName = '';
+let playerName = prompt('Welcome ! Enter Player name')
+game();
 while (playerName.trim() === '') {
   playerName = prompt('Enter Player name');
 }
-// computer(Branko) select function
-
-let playerName = prompt('Welcome ! Enter Player name')
-game();
 
 // computer select function
 
@@ -194,9 +191,9 @@ function game() {
         reset();
         game();
     }
-  } else if (playerScore < computerScore) {
+  } if (playerScore < computerScore) {
     if (confirm(`Match result: Branko Wins: ${computerScore} - ${playerScore}. Press OK to restart.`)) {
-      window.location.reload('./');
+        window.location.reload('./');
     }
   } else {
     if (confirm(`Match result: It is a tie! ${playerScore} - ${computerScore}. Press OK to restart.`)) {
@@ -222,4 +219,3 @@ game();
      window.location.reload("./");
 
 }
-
