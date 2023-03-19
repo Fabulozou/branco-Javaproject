@@ -77,11 +77,13 @@ function game() {
       if (input === null) {
         if (confirm('Are you sure you want to quit the game?')) {
           playAgain = false;
+          window.location.reload('./');
           break;
         }
       } else if (input.trim().toLowerCase() === 'cancel') {
         if (confirm('Are you sure you want to quit the game?')) {
           playAgain = false;
+          window.location.reload('./');
           break;
         }
       } else if (input.trim().toLowerCase() === 'rock' || input.trim().toLowerCase() === 'paper' || input.trim().toLowerCase() === 'scissors') {
